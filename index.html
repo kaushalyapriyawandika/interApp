@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form validation</title>
+	<style type="text/css">
+		.mydiv
+		{
+			text-align: center;
+			border-style: solid;
+		}
+	</style>
+
+
+	<script type="text/javascript">
+		
+		function validate()
+		{
+			var username=document.getElementById("uname");
+			var password=document.getElementById("pass");
+			var email=document.getElementById("mail").value;
+
+			
+
+			if (username.value.trim()=="")
+			{
+				uname.style.border="solid 3px red";
+				document.getElementById("lbuser").style.visibility="visible";
+				return false;
+			}
+			else if (password.value.trim().length<8 || password.value.trim()=="")
+			{
+				pass.style.border="solid 3px red";
+				document.getElementById("lbpass").style.visibility="visible";
+				return false;
+
+
+			}
+			else if(email.trim()=="")
+			{
+				pass.style.border="solid 3px red";
+				document.getElementById("lbmail").style.visibility="visible";
+				return false;
+				
+			}
+			else
+			{
+				return true;
+			}
+
+			
+		}
+	</script>
+</head>
+<body>
+	<form onsubmit="return validate()" action="welcome.html">
+		<div class="mydiv">
+			<h1>Login Form</h1>
+			<input id="uname" placeholder="enter user name" type="text" >
+			<label id="lbuser" style="color: red;visibility: hidden;">Invalid</label>
+			<br>
+			<br>
+
+			<input type="password" id="pass" placeholder="enter password" required>
+			<label id="lbpass" style="color: red;visibility: hidden;">too short</label>
+			<br>
+			<br>
+
+			<input type="text" id="mail" placeholder="enter email" required>
+			<label id="lbmail" style="color: red;visibility: hidden;">wrong mail</label>
+			<br>
+			<br>
+
+			<input type="submit" value="submit">
+		</div>
+	</form>
+
+</body>
+</html>
